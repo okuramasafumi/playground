@@ -2,15 +2,21 @@ require 'benchmark'
 
 Benchmark.bmbm do |x|
   times = 100000000
-  x.report(:is_a) { times.times { 1.is_a?(Numeric) } }
-  x.report(:spaceship) { times.times { 1 <=> 0 } }
+  x.report(:is_a_numeric) { times.times { 1.is_a?(Numeric) } }
+  x.report(:spaceship_numeric) { times.times { 1 <=> 0 } }
+  x.report(:is_a_nil) { times.times { nil.is_a?(Numeric) } }
+  x.report(:spaceship_nil) { times.times { nil <=> 0 } }
 end
 
-# Rehearsal ---------------------------------------------
-# is_a        4.069698   0.037524   4.107222 (  4.181472)
-# spaceship   3.886661   0.036528   3.923189 (  3.988225)
-# ------------------------------------ total: 8.030411sec
+# Rehearsal -----------------------------------------------------
+# is_a_numeric        4.021770   0.035042   4.056812 (  4.117585)
+# spaceship_numeric   3.858403   0.032344   3.890747 (  3.946810)
+# is_a_nil            4.185507   0.036329   4.221836 (  4.283727)
+# spaceship_nil       5.333476   0.049582   5.383058 (  5.478110)
+# ------------------------------------------- total: 17.552453sec
 
-#                 user     system      total        real
-# is_a        4.082623   0.034566   4.117189 (  4.174784)
-# spaceship   3.901275   0.033486   3.934761 (  3.987853)
+#                         user     system      total        real
+# is_a_numeric        4.018294   0.036411   4.054705 (  4.116184)
+# spaceship_numeric   3.848957   0.034442   3.883399 (  3.937972)
+# is_a_nil            4.176719   0.035917   4.212636 (  4.270753)
+# spaceship_nil       5.219250   0.044142   5.263392 (  5.341316)
