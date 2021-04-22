@@ -1,0 +1,15 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    benchmark-driver (0.1.0)
+      benchmark_driver
+    benchmark_driver (0.15.17)
+
+PLATFORMS
+  x86_64-darwin-19
+
+DEPENDENCIES
+  benchmark-driver
+
+BUNDLED WITH
+   2.2.16
